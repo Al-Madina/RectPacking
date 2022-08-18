@@ -16,7 +16,7 @@ the 2BPP that we considered here is referred to as <i>rectangular bin packing pr
 since the bins and the items are rectangular.
 
 The one-dimensional bin packing problem, which is a special case of 2BPP, was one of the 
-problem chosen in the <a href="https://link.springer.com/chapter/10.1007/978-3-642-25566-3_49">CHeSC-2011</a> 
+problem chosen in the <a href="https://link.springer.com/chapter/10.1007/978-3-642-25566-3_49" target="_blank">CHeSC-2011</a> 
 challenge for cross-domain search techniques.
 
 
@@ -24,7 +24,7 @@ challenge for cross-domain search techniques.
 There are several data structures proposed to track the free spaces in the bins after packing 
 items such as the shelf data structure. In this implementation we used the maximal space data 
 structure which is the most efficient for such a problem. Please read 
-<a href="https://www.sciencedirect.com/science/article/pii/S0925527313001837">this paper</a> for
+<a href="https://www.sciencedirect.com/science/article/pii/S0925527313001837" target="_blank">this paper</a> for
 further information.
 
 
@@ -37,7 +37,7 @@ Three packing heuristics are implemented which are
     <li>Touching perimeter.</li>
     <li> Distance to the front-top-right corner.</li>
 </ul>
-Please read <a href="https://www.sciencedirect.com/science/article/pii/S095741741930257X">this paper</a>
+Please read <a href="https://www.sciencedirect.com/science/article/pii/S095741741930257X" target="_blank">this paper</a>
 to understand these packing heuristics.
 
 
@@ -47,7 +47,7 @@ Each category contains 10 instances of sizes 20, 40, 60, 80 or 100. In total, th
 Most of the instances from categories (60 and above) are not solved optimally. Therefore, there is a 
 room for improvement.
 
-You can download the dataset from <a href="http://or.dei.unibo.it/library/two-dimensional-bin-packing-problem">here</a>.
+You can download the dataset from <a href="http://or.dei.unibo.it/library/two-dimensional-bin-packing-problem" target="_blank">here</a>.
 
 
 # Usage
@@ -93,5 +93,5 @@ best area fit. To pack the items using other packing heuristics do the following
 ```
 
 # Python
-If you prefer Python, I have a Python implementation over <a href="https://github.com/Al-Madina/pyRectPacking">here</a>.
+If you prefer Python, I have a Python implementation over <a href="https://github.com/Al-Madina/pyRectPacking" target="_blank">here</a>.
 However, it is slower than the Java implementation.
