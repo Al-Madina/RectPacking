@@ -1,4 +1,4 @@
-package rectpacking;
+package almadina.rectpacking;
 
 import java.util.Comparator;
 
@@ -19,7 +19,7 @@ public class BinAreaComparator implements Comparator{
         //the compare is implemented this way so that bins are sorted in descending order of their occupancy
         //the reason for this is that when we work with bin of low occupancy and when removing them
         //from the list of bins, we do not need to do O(n) operations to update indices of the bins to the right
-        return bin1.getOccupancy() == bin2.getOccupancy() ? 0 : (bin1.getOccupancy() > bin2.getOccupancy() ? -1 : 1);
+        return bin1.getOccupancy() == bin2.getOccupancy() ? 0 : bin1.getOccupancy() > bin2.getOccupancy() ? -1 : 1;
     }
-    
+
 }

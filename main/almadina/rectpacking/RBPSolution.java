@@ -1,8 +1,9 @@
-package rectpacking;
+package almadina.rectpacking;
 
 import java.util.ArrayList;
 import java.util.List;
-import rectpacking.RectPacking.PackingHeuristic;
+
+import almadina.rectpacking.RectPacking.PackingHeuristic;
 
 
 /**
@@ -14,21 +15,21 @@ import rectpacking.RectPacking.PackingHeuristic;
 public class RBPSolution {
     private final int binWidth;
     private final int binHeight;
-    
-    //This is not implemented properly in the packing methods    
-    private ArrayList<Bin> binList;
+
+    //This is not implemented properly in the packing methods
+    private List<Bin> binList;
     //solution measures:
-    private int numBins; 
-   
-    
+    private int numBins;
+
+
     public RBPSolution(int width, int height){
         //You might want to have a random number generator if you want to extend
         //the functionality of this class.
         this.binWidth = width;
         this.binHeight = height;
-        numBins = 0;        
+        numBins = 0;
     }
-    
+
     public RBPSolution(RBPSolution newSol){
         this.binWidth = newSol.binWidth;
         this.binHeight = newSol.binHeight;
@@ -38,9 +39,9 @@ public class RBPSolution {
             binList.add(new MaxSpaceBin(bin));
         }
         this.numBins = newSol.numBins;
-    }        
-    
-    
+    }
+
+
     /**
      * Pack the rects in <code>rectList</code> into bins.
      * @param rectList a list of rects to be packed
@@ -51,8 +52,9 @@ public class RBPSolution {
         numBins = computeLowerBound(rectList);
         binList = new ArrayList<>(numBins);
         //initialize bins
-        for(int i=0; i<numBins; i++)
-            binList.add(openNewBin()); 
+        for(int i=0; i<numBins; i++) {
+			binList.add(openNewBin());
+		}
         //Consider packing the rects according to their order
         for(Rect curRect : rectList){
             double bestValue = Double.POSITIVE_INFINITY;
@@ -84,7 +86,7 @@ public class RBPSolution {
         }
         numBins = binList.size();
     }
-    
+
     /**
      * Pack the rects in <code>rectList</code> into the <i>first available</i> bins.
      * @param rectList a list of rects to be packed
@@ -94,7 +96,7 @@ public class RBPSolution {
         //Compute a lower bound on the number of bins
         numBins = computeLowerBound(rectList);
         binList = new ArrayList<>(numBins);
-        binList.add(openNewBin()); 
+        binList.add(openNewBin());
         //Consider packing the rects according to their order
         for(Rect curRect : rectList){
             Bin bestBin = null; //Rect rectToPack = null;
@@ -125,45 +127,53 @@ public class RBPSolution {
         }
         numBins = binList.size();
     }
-    
+
     /**
      * Check whether this solution is feasible.
-     * @return 
+     * @return
      */
     public boolean isFeasible(){
-        for(Bin bin : binList)
-            if(!bin.isFeasible()) {
+        for(Bin bin : binList) {
+			if(!bin.isFeasible()) {
                 return false;
             }
+		}
         return true;
-    }        
- 
+    }
+
     private Bin openNewBin(){
         Bin newBin = new MaxSpaceBin(binWidth, binHeight);
         newBin.init();
         return newBin;
     }
-    
+
     public int computeLowerBound(List<Rect> rectList){
         int area = 0;
-        for(Rect rect : rectList)
-            area += rect.width * rect.height;        
+        for(Rect rect : rectList) {
+			area += rect.width * rect.height;
+		}
         return area/(binWidth*binHeight) + 1; //ceiling
-    }    
- 
+    }
+
     public int getNumberOfBin(){
         return numBins;
     }
-    
+
+    public List<Bin> getBins() {
+    	return binList;
+    }
+
     @Override
     public String toString(){
-        for(Bin bin : binList) System.out.println(bin);
+        for(Bin bin : binList) {
+			System.out.println(bin);
+		}
         String st = "";
         for(int i=0; i<binList.size(); i++){
             Bin bin = binList.get(i);
             st += "Size of bin " + i + " = " + bin.size() + "\n";
         }
         return st;
-    } 
-    
+    }
+
 }
