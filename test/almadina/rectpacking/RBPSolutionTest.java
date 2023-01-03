@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rectpacking;
+package almadina.rectpacking;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -22,6 +22,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+
+import almadina.rectpacking.RBPSolution;
+import almadina.rectpacking.Rect;
+import almadina.rectpacking.RectPacking;
 
 /**
  * Testing the Solution class.

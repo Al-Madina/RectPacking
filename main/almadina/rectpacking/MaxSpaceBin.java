@@ -1,8 +1,8 @@
-package rectpacking;
+package almadina.rectpacking;
 
-import static rectpacking.RectPacking.canRotate;
+import static almadina.rectpacking.RectPacking.canRotate;
 
-import rectpacking.RectPacking.PackingHeuristic;
+import almadina.rectpacking.RectPacking.PackingHeuristic;
 
 /**
  * A class implementing the maximal space data structure.

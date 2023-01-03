@@ -1,4 +1,4 @@
-package rectpacking;
+package almadina.rectpacking;
 
 import java.util.ArrayList;
 import java.util.List;

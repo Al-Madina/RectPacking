@@ -1,4 +1,4 @@
-package rectpacking;
+package almadina.rectpacking;
 
 import java.io.IOException;
 import java.util.Collections;

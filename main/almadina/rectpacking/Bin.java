@@ -1,10 +1,10 @@
-package rectpacking;
+package almadina.rectpacking;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import rectpacking.RectPacking.PackingHeuristic;
+import almadina.rectpacking.RectPacking.PackingHeuristic;
 
 /**
  * A class for representing a two-dimensional bin.

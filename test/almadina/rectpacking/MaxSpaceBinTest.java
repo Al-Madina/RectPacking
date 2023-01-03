@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rectpacking;
+package almadina.rectpacking;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -16,6 +16,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
+
+import almadina.rectpacking.Bin;
+import almadina.rectpacking.MaxSpaceBin;
+import almadina.rectpacking.Rect;
+import almadina.rectpacking.RectPacking;
 
 /**
  * Testing the MaxSpaceBin class.

@@ -1,9 +1,9 @@
-package rectpacking;
+package almadina.rectpacking;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import rectpacking.RectPacking.PackingHeuristic;
+import almadina.rectpacking.RectPacking.PackingHeuristic;
 
 
 /**

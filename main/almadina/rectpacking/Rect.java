@@ -1,4 +1,4 @@
-package rectpacking;
+package almadina.rectpacking;
 
 /**
  * A class implementing a rectangular item.
