@@ -10,13 +10,13 @@ import java.util.Random;
  * @author Ahmed Hassan (ahmedhasssan@aims.ac.za)
  */
 public class Main {
-    
+
     /**
-     * 
-     * @param args 
-     * @throws java.io.IOException 
+     *
+     * @param args
+     * @throws java.io.IOException
      */
-    public static void main(String[] args) throws IOException{        
+    public static void main(String[] args) throws IOException{
         //The dataset we consider has 10 classes
         int classID = 10; // class ID
         //Path to the location of dataset
@@ -24,9 +24,9 @@ public class Main {
         //Problem instance file
         String className = classID < 10 ? "0"+classID : ""+classID;
         String filename = "Class_" + className + ".2bp";
-        filename = directory + filename;        
+        filename = directory + filename;
         System.out.println("Reading: " + filename);
-        
+
         //Create an instance of the two-dimensional bin packing problem seeded
         //with 12345
         RectPacking problem = new RectPacking(12345);
@@ -44,8 +44,8 @@ public class Main {
             throw new RuntimeException("Infeasible solution");
         }
         System.out.println("Number of bins (using best area fit heuristic) = " + solution.getNumberOfBin());
-        
-        
+
+
         //The solution initialized above used the best area fit packing heuristic
         //by DEFAULT. To be able to use other packing heuristic, you can do:
         //Create an empty solution

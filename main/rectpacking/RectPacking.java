@@ -17,54 +17,54 @@ import java.util.StringTokenizer;
  * @author Ahmed Hassan (ahmedhasssan@aims.ac.za)
  */
 public class RectPacking {
-    
+
     /**
      * The packing heuristics that determines the placement of the items inside
      * the bins.
      */
     public static enum PackingHeuristic {
     	/** Default */
-        BestAreaFit, 
+        BestAreaFit,
         TouchingPerimeter,
         TopRightCornerDistance
     }
-    
+
     public static boolean canRotate = false;
     private final Random rng;
-    /** Instance unique identifier */        
+    /** Instance unique identifier */
     private int instanceID;
     /** A list of instances. In each class (file), there are 50 instances*/
     List<Instance> instanceList;
-    
-    
+
+
     /**
      * Create an instance of the rectangular two-dimensional problem using a seed
      * for the random number generator.
-     * @param seed 
+     * @param seed
      */
     public RectPacking(long seed){
         rng = new Random(seed);
         instanceList = new ArrayList<>(50);
-    }   
-    
+    }
+
     public RectPacking(int w, int h, List<Rect> rects){
     	rng = new Random();
     	Instance instance = new Instance();
     	instance.binWidth = w;
     	instance.binHeight = h;
     	instance.loadRectToPack(rects);
-    	
+
     	instanceList = new ArrayList<>(1);
     	instanceList.add(instance);
     	instanceID = 0;
-    }     
-    
-        
+    }
+
+
     /**
      * Read problem instance from a file.
      * @param pathToInstanceFile path to the instance file
      * @throws FileNotFoundException
-     * @throws IOException 
+     * @throws IOException
      */
     public final void read(String pathToInstanceFile) throws FileNotFoundException, IOException{
         int binWidth, binHeight;
@@ -86,14 +86,14 @@ public class RectPacking {
                 instance.loadRectToPack(rectList);
                 instanceList.add(instance);
                 //System.out.println("size = " + instance.size());
-                continue; 
-            } 
+                continue;
+            }
             if(line.contains("PROBLEM")){
                 isNewInstance = true;
                 headingLines++;
                 //if(instance.isInitialized()) instanceList.add(instance);
                 instance = new Instance();
-                continue; //read the next 
+                continue; //read the next
             }
             if(isNewInstance){
                 switch (headingLines) {
@@ -130,7 +130,7 @@ public class RectPacking {
     }
 
     /**
-     * Initialize a solution by packing randomly shuffled items into bins using 
+     * Initialize a solution by packing randomly shuffled items into bins using
      * the best are fit heuristic.
      * @return an initial solution
      */
@@ -146,7 +146,7 @@ public class RectPacking {
          sol.pack(rectList, PackingHeuristic.BestAreaFit);
         return sol;
     }
-    
+
     /**
      * Get an empty solution.
      * @return an empty solution that does not contain any bin (not initialized)
@@ -160,23 +160,23 @@ public class RectPacking {
         //Create an empty solution
         return new RBPSolution(instance.binWidth, instance.binHeight);
     }
-    
+
     public Instance getInstance(int instanceID){
         return instanceList.get(instanceID);
     }
-    
+
     /**
      * Set the instance to be solved.
-     * @param instanceID 
+     * @param instanceID
      */
     public void setInstance(int instanceID){
-       this.instanceID = instanceID; 
+       this.instanceID = instanceID;
     }
-    
+
     public List<Rect> getPackingQueue(){
         Instance instance = instanceList.get(instanceID);
         return instance.queue;
     }
-      
-}    
+
+}
 

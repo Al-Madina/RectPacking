@@ -12,5 +12,5 @@ public class RectAreaComparator implements Comparator<Rect>{
     public int compare(Rect o1, Rect o2) {
         return -Integer.compare(o1.area, o2.area);
     }
-    
+
 }
