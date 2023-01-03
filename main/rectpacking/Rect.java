@@ -57,6 +57,16 @@ public class Rect {
         this.score = rect.score;
     }
     
+    /**
+     * Create rect of a specific width and height (static constructor).
+     * @param width
+     * @param height
+     * @return
+     */
+    public static Rect of(int width, int height) {
+    	return new Rect(width, height);
+    }
+    
     public void removePackingInfo(){
         x = -1;
         y = -1;
@@ -189,6 +199,6 @@ public class Rect {
     
     @Override
     public String toString(){
-        return "(" + this.width + ", " + this.height +")";
+    	return String.format("Rect(w=%s, h=%s, x=%s, y=%s)", width, height, x, y);
     }
 }

@@ -1,6 +1,7 @@
 package rectpacking;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import rectpacking.RectPacking.PackingHeuristic;
 
@@ -20,9 +21,9 @@ public abstract class Bin {
     /** Area in the bin occupied by rects */
     protected int occupiedArea; 
     /** A list of currently packed rects in this bin */
-    protected ArrayList<Rect> packedRects;
+    protected List<Rect> packedRects;
     /** A list of free maximal spaces (free rects) that can potentially contain items */
-    protected ArrayList<Rect> freeRects;
+    protected List<Rect> freeRects;
     
     
     /**
@@ -172,7 +173,7 @@ public abstract class Bin {
         return !(horizSkip || vertSkip);
     }        
     
-    public ArrayList<Rect> getPackedRect(){
+    public List<Rect> getPackedRect(){
         //make sure packed rects will not be modified; otherwise, returns a copy
         return packedRects; 
     }

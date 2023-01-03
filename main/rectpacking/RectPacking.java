@@ -33,7 +33,7 @@ public class RectPacking {
     /** Instance unique identifier */        
     private int instanceID;
     /** A list of instances. In each class (file), there are 50 instances*/
-    ArrayList<Instance> instanceList;
+    List<Instance> instanceList;
     
     
     /**
@@ -44,6 +44,18 @@ public class RectPacking {
     public RectPacking(long seed){
         rng = new Random(seed);
         instanceList = new ArrayList<>(50);
+    }   
+    
+    public RectPacking(int w, int h, List<Rect> rects){
+    	rng = new Random();
+    	Instance instance = new Instance();
+    	instance.binWidth = w;
+    	instance.binHeight = h;
+    	instance.loadRectToPack(rects);
+    	
+    	instanceList = new ArrayList<>(1);
+    	instanceList.add(instance);
+    	instanceID = 0;
     }     
     
         

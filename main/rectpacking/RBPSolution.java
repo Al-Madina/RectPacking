@@ -16,7 +16,7 @@ public class RBPSolution {
     private final int binHeight;
     
     //This is not implemented properly in the packing methods    
-    private ArrayList<Bin> binList;
+    private List<Bin> binList;
     //solution measures:
     private int numBins; 
    
@@ -153,6 +153,10 @@ public class RBPSolution {
  
     public int getNumberOfBin(){
         return numBins;
+    }
+    
+    public List<Bin> getBins() {
+    	return binList;
     }
     
     @Override

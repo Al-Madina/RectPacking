@@ -1,6 +1,7 @@
 package rectpacking;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * An instance of the two-dimensional bin packing problem.
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 public class Instance {
     public int binWidth;
     public int binHeight;
-    public ArrayList<Rect> queue;
+    public List<Rect> queue;
     
     public Instance(){
         binWidth = 0;
@@ -29,7 +30,7 @@ public class Instance {
         queue = new ArrayList<>();
     }
     
-    public void loadRectToPack(ArrayList<Rect> queue){
+    public void loadRectToPack(List<Rect> queue){
         this.queue = new ArrayList<>(queue.size());
         for(int i=0; i < queue.size(); i++){
             Rect rect = queue.get(i);
