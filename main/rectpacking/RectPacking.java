@@ -23,6 +23,7 @@ public class RectPacking {
      * the bins.
      */
     public static enum PackingHeuristic {
+    	/** Default */
         BestAreaFit, 
         TouchingPerimeter,
         TopRightCornerDistance

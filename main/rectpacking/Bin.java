@@ -173,7 +173,7 @@ public abstract class Bin {
         return !(horizSkip || vertSkip);
     }        
     
-    public List<Rect> getPackedRect(){
+    public List<Rect> getPackedRects(){
         //make sure packed rects will not be modified; otherwise, returns a copy
         return packedRects; 
     }
@@ -238,11 +238,12 @@ public abstract class Bin {
     }
     
     double computeDistance(int x1, int y1, int x2, int y2){
-        return Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
-        /**
-         * You could also return the distance without the sqrt since it does not
-         * really matter in this domain whether you return the distance or the distance squared.
-         */
+		/*
+		 * You could also return the distance with the sqrt since it does not really
+		 * matter in this domain whether you return the distance or the distance
+		 * squared.
+		 */
+		return (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
     }
     
     @Override

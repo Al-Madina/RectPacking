@@ -1,10 +1,10 @@
-## Table of Content
-1. [Two-Dimensional Bin Packing Problem](#two-dimensional-bin-packing-problem)
-2. [Data Structure](#data-structure)
-3. [Packing Heuristics](#packing-heuristics)
-4. [Dataset](#dataset)
-5. [Usage](#usage)
-6. [Python](#python)
+## Table of Contents
+- [Two-Dimensional Bin Packing Problem](#two-dimensional-bin-packing-problem)
+- [Data Structure](#data-structure)
+- [Packing Heuristics](#packing-heuristics)
+- [Dataset](#dataset)
+- [Usage](#usage)
+- [Python](#python)
 
 
 # Two-Dimensional Bin Packing Problem
@@ -51,7 +51,22 @@ You can download the dataset from <a href="http://or.dei.unibo.it/library/two-di
 
 
 # Usage
-You can easily use my implementation as explained below
+General usage:
+```java
+// make 500 rects and pack them in an area 1000x1000.
+SplittableRandom r = new SplittableRandom();
+List<Rect> rects = Stream.generate(() -> Rect.of(r.nextInt(25, 50), r.nextInt(25, 50))).limit(500).toList();
+
+RBPSolution solution = new RBPSolution(1000, 1000);
+solution.pack(rects, PackingHeuristic.TouchingPerimeter);
+
+solution.getBins().forEach(bin -> {
+	bin.getPackedRects().forEach(rect -> {
+		System.out.println(rect.toString());
+	});
+});
+```
+Usage with dataset:
 ```java
     //Create an instance of the two-dimensional bin packing problem seeded with 12345
     RectPacking problem = new RectPacking(12345);
