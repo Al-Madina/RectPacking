@@ -38,11 +38,19 @@ public class MaxSpaceBin extends Bin{
         //Check whether rect is ready for packing, i.e., method "evaluatePacking" has already been invoked
         if(!rect.isReadyForPacking()){
             switch(heuristic){
-                case TouchingPerimeter: newRect = insertTouchingPerimeter(rect); break;
-                case BestAreaFit: newRect = insertBestArea(rect); break;
-                case TopRightCornerDistance: newRect = insertTopRightCornerDistance(rect); break;
-                default: newRect = insertBestArea(rect); break; // Use best area fit as a default heuristic
-            }
+			case TouchingPerimeter:
+				newRect = insertTouchingPerimeter(rect);
+				break;
+			case BestAreaFit:
+				newRect = insertBestArea(rect);
+				break;
+			case TopRightCornerDistance:
+				newRect = insertTopRightCornerDistance(rect);
+				break;
+			default:
+				newRect = insertBestArea(rect);
+				break; // Use best area fit as a default heuristic
+			}
         }
         else{
             newRect = new Rect(rect);

@@ -57,11 +57,17 @@ public class MaxSpaceBinTest {
         //You could provide the argument as a stream of `Argument` and change the
         //method signature to receive the packing heuristic and the expected result
         double expectedResult = 0;
-        switch(heur){
-            case BestAreaFit -> expectedResult = 64; 
-            case TouchingPerimeter -> expectedResult = -5;
-            case TopRightCornerDistance -> expectedResult = -9.433;            
-        }
+		switch (heur) {
+		case BestAreaFit:
+			expectedResult = 64;
+			break;
+		case TouchingPerimeter:
+			expectedResult = -5;
+			break;
+		case TopRightCornerDistance:
+			expectedResult = -9.433;
+			break;
+		}
         
         
         Bin bin = openBin();
